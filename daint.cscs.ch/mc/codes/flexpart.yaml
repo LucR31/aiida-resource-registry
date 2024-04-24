@@ -1,9 +1,8 @@
 ---
-label: flexpart_{{model}}
+label: flexpart-{{model}}-{{version}}
 description: ""
 default_calc_job_plugin: flexpart.{{model}}
-filepath_executable:  /users/lfernand/flexpart/bin/FLEXPART_main_daint_GNUoptompncdfout
-                     #/users/lfernand/flexpart_ifs_empa/bin/FLEXPART91IFS_omp
+filepath_executable:  /store/empa/em05/apps/flexpart/CrayGNU-21.09/FLEXPART-{{model}}_{{version}}
 prepend_text: |
 
     export OMP_STACKSIZE=100M
@@ -23,6 +22,12 @@ metadata:
             key_display: model
             type: list
             options:
-                - flexpart
-                - ifs
+                - COSMO
+                - IFS
+        version:
+            key_display: version
+            type: list
+            options:
+                - 8C4-ac771d1_20240310
+                - 9.1-03f4a74b_20231110
 
